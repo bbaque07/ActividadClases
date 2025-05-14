@@ -13,6 +13,10 @@ return new class extends Migration
     {
         Schema::create('estudiantes', function (Blueprint $table) {
             $table->id();
+            $table->string('nombre');
+            $table->string('cedula')->unique();
+            $table->string('correo');
+            $table->foreingId('paralelo_id')->constrained('paralelos')->onDelete('cascada');
             $table->timestamps();
         });
     }
