@@ -12,13 +12,14 @@ return new class extends Migration
     public function up(): void
     {
         Schema::create('estudiantes', function (Blueprint $table) {
-            $table->id();
-            $table->string('nombre');
-            $table->string('cedula')->unique();
-            $table->string('correo');
-            $table->foreingId('paralelo_id')->constrained('paralelos')->onDelete('cascada');
-            $table->timestamps();
-        });
+    $table->id();
+    $table->string('nombre');
+    $table->string('cedula')->unique();
+    $table->string('correo');
+    $table->foreignId('paralelo_id')->constrained('paralelos')->onDelete('cascade');
+    $table->timestamps();
+});
+
     }
 
     /**
